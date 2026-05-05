@@ -39,7 +39,7 @@ namespace prectica
 				using (MySqlConnection conexion = new MySqlConnection(cadenaConexion)) 
 				{
 					// Paso 3: Consulta SQL
-					string consulta = "SELECT  Id, name , last_name, password ,rol_user from usuario";
+					string consulta = "SELECT    Id, name , last_name, password ,rol_user from User";
 					//paso 4 Abre la conexión
 					conexion.Open();
 					// Paso 4: Adaptador ejecuta consulta y llena DataTable
