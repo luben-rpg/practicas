@@ -10,24 +10,59 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
+using System.Data;
 namespace prectica
 {
-	/// <summary>
-	/// Description of MainForm.
-	/// </summary>
+	
 	public partial class MainForm : Form
+		
 	{
+		// Paso 1 --> crea una cadena de conexión
+		private string cadenaConexion =  "Server=localhost;Database=practicas;Uid=root;Pwd='';";
+		
+			
 		public MainForm()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
+			CargarUsuarios();
 			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+		}
+		
+		public void CargarUsuarios(){
+		
+			try {
+				// Paso 2: Crear conexión (se libera automáticamente al salir del using)
+				using (MySqlConnection conexion = new MySqlConnection(cadenaConexion)) 
+				{
+					// Paso 3: Consulta SQL
+					string consulta = "SELECT  Id, name , last_name, password ,rol_user from usuario";
+					//paso 4 Abre la conexión
+					conexion.Open();
+					// Paso 4: Adaptador ejecuta consulta y llena DataTable
+					MySqlDataAdapter adaptador = new MySqlDataAdapter(consulta, conexion);
+					
+					DataTable tabla = new DataTable(); // Tabla en memoria
+					adaptador.Fill(tabla);
+					
+					// Paso 5: Mostrar datos
+					dtvuser.DataSource = tabla;
+					
+					lblStatus.Text = string.Format("Cargados {0} usuarios.", tabla.Rows.Count);
+					
+				}
+			} catch (Exception ex) {
+				
+				MessageBox.Show(string.Format("No se pudo realizar conexion por : {0}",ex.Message));
+			}
+		}
+		
+		
+		void MainFormLoad(object sender, EventArgs e)
+		{
 		}
 	}
-}34279970-1817-4541-8B22-1F63705818CE
+}

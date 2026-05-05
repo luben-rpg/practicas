@@ -8,6 +8,8 @@
  */
 using System;
 using MySql.Data.MySqlClient;
+
+
 namespace prectica
 {
 	/// <summary>
@@ -15,6 +17,11 @@ namespace prectica
 	/// </summary>
 	public class Class1
 	{
+		
+		
+		
+		
+		
 		public Class1()
 		{
 		}

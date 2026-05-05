@@ -1,0 +1,8 @@
+C:\Users\Usuario\Desktop\luben\prectica\prectica\obj\Debug\prectica.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Desktop\luben\prectica\prectica\bin\Debug\prectica.exe
+C:\Users\Usuario\Desktop\luben\prectica\prectica\bin\Debug\prectica.pdb
+C:\Users\Usuario\Desktop\luben\prectica\prectica\bin\Debug\MySql.Data.dll
+C:\Users\Usuario\Desktop\luben\prectica\prectica\obj\Debug\prectica.exe
+C:\Users\Usuario\Desktop\luben\prectica\prectica\obj\Debug\prectica.pdb
+C:\Users\Usuario\Desktop\luben\prectica\prectica\obj\Debug\prectica.MainForm.resources
+C:\Users\Usuario\Desktop\luben\prectica\prectica\obj\Debug\prectica.csproj.GenerateResource.Cache
