@@ -1,0 +1,185 @@
+/* ==========================================================================
+   1. VARIABLES GLOBALES Y RESET
+   ========================================================================== */
+:root {
+    --primary-color: #1e8fa3;
+    --primary-hover: #167a8c;
+    --bg-color: #eef2f5;
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --border-color: #cccccc;
+    --input-focus: rgba(30, 143, 163, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+}
+
+/* ==========================================================================
+   2. CONTENEDOR Y TARJETA
+   ========================================================================== */
+.registro-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+.registro-card {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   3. CUADRÍCULA DEL FORMULARIO (GRID)
+   ========================================================================== */
+.grid-fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide en 2 columnas iguales */
+    gap: 1.5rem;
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    background-color: #fcfcfc;
+}
+
+/* Aplica Flexbox a todos los grupos de inputs y al div del Select */
+.form-group, 
+.grid-fieldset > div:not(.radio-option) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* ==========================================================================
+   4. INPUTS, SELECTS Y LABELS
+   ========================================================================== */
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--input-focus);
+}
+
+/* ==========================================================================
+   5. BOTONES DE RADIO (TIPO DE CLIENTE)
+   ========================================================================== */
+.radio-option {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Hace que el título "Tipo de Cliente" ocupe toda la línea superior */
+.radio-option label[for="nombre"] {
+    width: 100%;
+    margin-bottom: 0.2rem;
+}
+
+.radio-option input[type="radio"] {
+    accent-color: var(--primary-color);
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+}
+
+.radio-option label:not([for="nombre"]) {
+    font-weight: 400;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   6. BOTÓN Y FOOTER
+   ========================================================================== */
+.btn-primary {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid #eeeeee;
+    padding-top: 1.5rem;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   7. RESPONSIVIDAD (MÓVILES)
+   ========================================================================== */
+@media (max-width: 650px) {
+    .grid-fieldset {
+        grid-template-columns: 1fr; /* Pasa a 1 sola columna en pantallas pequeñas */
+    }
+}
